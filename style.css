@@ -9,6 +9,23 @@
     font-weight: 20px;
     text-transform: capitalize;
 }
-.prueba2 {
+/* .prueba2 {
     
+} */
+
+.grilla {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.fila {
+    display: flex;
+    gap: 1rem;
+}
+
+.celda {
+    outline: 1px solid red;
+    width: 100px;
+    height: 100px;
 }
