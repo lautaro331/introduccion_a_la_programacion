@@ -33,18 +33,43 @@ let estado = []
 let jugador1 = "X"
 let jugador2 = "O"
 let jugadorActual = jugador1
-
+const combinacionesGanadoras = [
+    [0, 1, 2],
+    [3, 4, 5],
+    [6, 7, 8],
+    [0, 3, 6],
+    [1, 4, 7],
+    [2, 5, 8],
+    [0, 4, 8],
+    [6, 4, 2]
+]
+let hayGanador = false
 for (let i = 0; i < celdas.length; i++) {
 
     estado.push(null)
     celdas[i].onclick = function (evento) {
         if (estado[i]) return
-        estado[i] = jugador1
+        estado[i] = jugadorActual
         evento.target.innerText = jugadorActual
+        console.log(combinacionesGanadoras.map((item) => {
+            return [estado[item[0]], estado[item[1]], estado[item[1]] , estado[item[2]]]
+        })
+        )
+
+        hayGanador = combinacionesGanadoras.map((item) => {
+            return estado[item[0]] === estado[item[1]] && estado[item[1]] === estado[item[2]] && estado[item[0]]!==null
+        }).some(i => i)
+        
+        if (hayGanador) {
+            alert(`Gano el jugador ${jugadorActual}`)
+            return
+        }
+        
         if (jugadorActual === jugador2) {
             jugadorActual = jugador1
         } else {
             jugadorActual = jugador2
         }
+
     }
 }
