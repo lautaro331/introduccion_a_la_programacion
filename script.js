@@ -73,3 +73,7 @@ for (let i = 0; i < celdas.length; i++) {
 
     }
 }
+function mifuncion(visitas){
+return visitas+1
+}
+mifuncion(7)
